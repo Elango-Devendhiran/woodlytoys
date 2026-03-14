@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Payment Guide — Woodly Toys</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.page-hero{background:linear-gradient(135deg,var(--lavender) 0%,var(--sky) 100%);}
+.gw-section{padding:80px 0;background:#fff;}
+.gw-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.gw-card{border-radius:var(--radius-xl);border:2px solid var(--border);padding:30px 26px;transition:.3s;background:#fff;}
+.gw-card:hover{border-color:var(--orange);box-shadow:0 12px 40px rgba(43,43,58,.12);transform:translateY(-4px);}
+.gw-card.recommended{border-color:var(--orange);box-shadow:0 8px 32px rgba(255,112,67,.15);}
+.gw-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+.gw-logo-box{width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;}
+.rec-tag{background:var(--orange);color:#fff;padding:4px 12px;border-radius:50px;font-size:.7rem;font-weight:800;letter-spacing:.05em;}
+.gw-card h3{font-family:'Baloo 2',cursive;font-size:1.2rem;font-weight:800;color:var(--text);margin-bottom:10px;}
+.gw-card p{font-size:.88rem;color:var(--text-md);line-height:1.7;margin-bottom:16px;}
+.fee-tag{display:inline-block;background:var(--lemon);border:2px solid var(--yellow);border-radius:50px;padding:5px 14px;font-size:.78rem;font-weight:800;color:var(--yellow-dark);}
+.gw-meta{margin-top:16px;font-size:.82rem;color:var(--text-soft);line-height:1.8;}
+.gw-meta strong{color:var(--text-md);}
+
+.setup-section{padding:80px 0;background:linear-gradient(135deg,var(--orange) 0%,var(--pink) 60%,var(--purple) 100%);}
+.setup-inner{border-radius:var(--radius-xl);overflow:hidden;}
+.setup-head{padding:40px 48px 32px;color:#fff;}
+.setup-head h2{font-family:'Baloo 2',cursive;font-size:2.2rem;font-weight:800;margin-bottom:10px;}
+.setup-head p{font-size:.97rem;color:rgba(255,255,255,.75);line-height:1.7;}
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;}
+.setup-step{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);padding:28px 24px;transition:.2s;}
+.setup-step:hover{background:rgba(255,255,255,.18);}
+.setup-step-num{width:44px;height:44px;border-radius:50%;background:var(--yellow);display:flex;align-items:center;justify-content:center;font-family:'Baloo 2',cursive;font-size:1.1rem;font-weight:800;color:var(--text);margin-bottom:14px;}
+.setup-step h4{font-family:'Baloo 2',cursive;font-size:1rem;font-weight:800;color:#fff;margin-bottom:8px;}
+.setup-step p{font-size:.84rem;color:rgba(255,255,255,.7);line-height:1.65;}
+
+.need-section{padding:80px 0;background:var(--lemon);}
+.need-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+.need-item{background:#fff;border-radius:var(--radius-lg);padding:20px 22px;border:2px solid #F0E8C0;display:flex;gap:14px;align-items:flex-start;transition:.2s;}
+.need-item:hover{border-color:var(--orange);}
+.need-check{width:36px;height:36px;border-radius:10px;background:var(--mint);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+.need-item h4{font-family:'Baloo 2',cursive;font-size:.95rem;font-weight:800;color:var(--text);margin-bottom:5px;}
+.need-item p{font-size:.84rem;color:var(--text-md);line-height:1.6;}
+
+.img-guide-section{padding:80px 0;background:#fff;}
+.img-guide-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.img-guide-card{background:var(--lemon);border-radius:var(--radius-lg);padding:22px;border:2px solid #F0E8C0;}
+.img-guide-card h4{font-family:'Baloo 2',cursive;font-size:.95rem;font-weight:800;color:var(--text);margin-bottom:8px;}
+.img-dim{display:inline-block;background:var(--orange);color:#fff;border-radius:8px;padding:4px 12px;font-family:monospace;font-size:.8rem;font-weight:800;margin-bottom:10px;}
+.img-guide-card p{font-size:.83rem;color:var(--text-md);line-height:1.6;}
+.img-format{font-size:.75rem;color:var(--green-dark);font-weight:800;margin-top:8px;}
+
+@media(max-width:960px){.gw-grid{grid-template-columns:1fr;}.steps-grid{grid-template-columns:1fr 1fr;}.need-grid{grid-template-columns:1fr;}.img-guide-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:600px){.steps-grid{grid-template-columns:1fr;}.img-guide-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav class="navbar">
+  <a href="index.html" class="nav-logo">Woodly<span class="accent">🪵</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="payment-guide.html" class="active">Payment Info</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="cart.html" class="btn-nav-cart">🛒 Cart <span class="cart-badge">2</span></a>
+    <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob-menu" id="mobMenu">
+  <a href="index.html">🏠 Home</a><a href="shop.html">🛍️ Shop</a><a href="about.html">ℹ️ About</a><a href="contact.html">📬 Contact</a><a href="payment-guide.html" class="active">💳 Payment Info</a>
+</div>
+
+<div class="page-hero">
+  <h1>💳 Payment Guide &amp; Setup</h1>
+  <p>Everything you need to know about payments, gateways, and launching your Woodly store.</p>
+</div>
+<div class="breadcrumb"><a href="index.html">Home</a><span class="sep">›</span><span>Payment Info</span></div>
+
+<!-- GATEWAYS -->
+<section class="gw-section">
+  <div class="container">
+    <div class="sec-head">
+      <span class="sec-tag orange">🏦 Choose Your Gateway</span>
+      <h2>Recommended Payment Gateways</h2>
+      <p>Pick the right payment solution for your store based on your audience and transaction needs.</p>
+    </div>
+    <div class="gw-grid">
+      <div class="gw-card recommended">
+        <div class="gw-top">
+          <div class="gw-logo-box" style="background:var(--lemon);">💳</div>
+          <span class="rec-tag">✓ RECOMMENDED</span>
+        </div>
+        <h3>Razorpay</h3>
+        <p><strong>Best for Indian stores.</strong> Accepts UPI, Credit/Debit Cards, Net Banking, Paytm, PhonePe, Amazon Pay, EMI, and more. Instant KYC &amp; activation.</p>
+        <span class="fee-tag">2% per transaction</span>
+        <div class="gw-meta">
+          <strong>Website:</strong> razorpay.com<br>
+          <strong>Setup Time:</strong> 2–3 business days<br>
+          <strong>Payout:</strong> T+2 days<br>
+          <strong>Min Txn:</strong> ₹1
+        </div>
+      </div>
+      <div class="gw-card">
+        <div class="gw-top">
+          <div class="gw-logo-box" style="background:var(--sky);">🌐</div>
+        </div>
+        <h3>Stripe</h3>
+        <p><strong>Best for international orders.</strong> Accepts all global cards, Apple Pay, Google Pay. Available in 135+ countries. Excellent developer tools &amp; dashboard.</p>
+        <span class="fee-tag">2.9% + ₹30</span>
+        <div class="gw-meta">
+          <strong>Website:</strong> stripe.com<br>
+          <strong>Setup Time:</strong> 1 day<br>
+          <strong>Payout:</strong> T+7 days<br>
+          <strong>Currencies:</strong> 135+
+        </div>
+      </div>
+      <div class="gw-card">
+        <div class="gw-top">
+          <div class="gw-logo-box" style="background:var(--mint);">📦</div>
+        </div>
+        <h3>Cash on Delivery</h3>
+        <p><strong>Essential for Tier-2/3 cities.</strong> No gateway fees, but adds a ₹50–₹80 COD handling charge. Builds trust with first-time buyers unfamiliar with online payments.</p>
+        <span class="fee-tag">₹50 flat COD fee</span>
+        <div class="gw-meta">
+          <strong>Setup:</strong> Through shipping partner<br>
+          <strong>Return Rate:</strong> 15–20% higher<br>
+          <strong>Payout:</strong> After delivery confirmation
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SETUP STEPS -->
+<section class="setup-section">
+  <div class="container">
+    <div class="setup-head">
+      <div style="display:inline-block;background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.3);padding:5px 18px;border-radius:50px;font-size:.75rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#fff;margin-bottom:14px;">⚙️ Step-by-Step</div>
+      <h2>Razorpay Setup Guide</h2>
+      <p>Get your payment gateway live in 6 simple steps — usually done in under 3 business days.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="setup-step"><div class="setup-step-num">1</div><h4>Create Account</h4><p>Go to razorpay.com → Sign Up. Enter your business email and mobile. Verify OTP to create your account.</p></div>
+      <div class="setup-step"><div class="setup-step-num">2</div><h4>Complete KYC</h4><p>Submit: PAN card, GST certificate (if any), Bank account details, Aadhaar/Passport, Business registration proof.</p></div>
+      <div class="setup-step"><div class="setup-step-num">3</div><h4>Get API Keys</h4><p>After approval → Settings → API Keys → Generate Key. Copy Key ID &amp; Key Secret. Keep the Secret safe!</p></div>
+      <div class="setup-step"><div class="setup-step-num">4</div><h4>Add to Website</h4><p>Include Razorpay's JS script in your HTML. Pass your Key ID, order amount, and currency to the checkout handler.</p></div>
+      <div class="setup-step"><div class="setup-step-num">5</div><h4>Test Payments</h4><p>Use Razorpay's sandbox test cards to simulate real transactions. Check webhooks are working for order confirmation.</p></div>
+      <div class="setup-step"><div class="setup-step-num">6</div><h4>Go Live! 🎉</h4><p>Switch from test keys to live keys. Ensure your site has SSL (HTTPS). You're ready to accept real payments!</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU NEED -->
+<section class="need-section">
+  <div class="container">
+    <div class="sec-head">
+      <span class="sec-tag yellow">📋 Checklist</span>
+      <h2>What You Need to Launch</h2>
+      <p>A complete checklist of everything required to get your Woodly store live and selling.</p>
+    </div>
+    <div class="need-grid">
+      <div class="need-item"><div class="need-check">🌐</div><div><h4>Domain Name</h4><p>e.g., woodlytoys.in — Register on GoDaddy or Namecheap. Costs ₹800–₹1,200 per year.</p></div></div>
+      <div class="need-item"><div class="need-check">🖥️</div><div><h4>Web Hosting + SSL</h4><p>Hostinger or AWS. SSL certificate is mandatory for payment gateways. Cost: ₹2,000–₹6,000/year.</p></div></div>
+      <div class="need-item"><div class="need-check">🏦</div><div><h4>Business Bank Account</h4><p>A current account in your business name is required for payment gateway settlement and KYC.</p></div></div>
+      <div class="need-item"><div class="need-check">📄</div><div><h4>GST Registration</h4><p>Required if annual turnover exceeds ₹20 lakhs. Apply at gst.gov.in. Takes 3–7 working days.</p></div></div>
+      <div class="need-item"><div class="need-check">💳</div><div><h4>Razorpay / Stripe Account</h4><p>Sign up, complete KYC, and get API keys. Approval takes 2–5 business days for Indian accounts.</p></div></div>
+      <div class="need-item"><div class="need-check">🚚</div><div><h4>Shipping Partner</h4><p>Shiprocket, Delhivery, or BlueDart for pan-India delivery with real-time tracking for customers.</p></div></div>
+      <div class="need-item"><div class="need-check">📜</div><div><h4>Legal Pages</h4><p>Privacy Policy, Return Policy, Terms &amp; Conditions — required by payment gateways and e-commerce law.</p></div></div>
+      <div class="need-item"><div class="need-check">📸</div><div><h4>Product Photography</h4><p>High-quality photos per the image guide below. Use natural light — DSLR or iPhone 12+ works well.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- IMAGE GUIDE -->
+<section class="img-guide-section">
+  <div class="container">
+    <div class="sec-head">
+      <span class="sec-tag purple">🖼️ Image Guide</span>
+      <h2>Required Image Sizes</h2>
+      <p>Use these exact dimensions for best display quality. Compress all images under 200KB for fast page loads.</p>
+    </div>
+    <div class="img-guide-grid">
+      <div class="img-guide-card">
+        <h4>🖼️ Hero Banner</h4>
+        <div class="img-dim">1440 × 700 px</div>
+        <p>Full-width homepage banner. Lifestyle shot of toys in use or a styled hero arrangement.</p>
+        <div class="img-format">JPG / WebP · Max 300KB</div>
+      </div>
+      <div class="img-guide-card">
+        <h4>🖼️ Hero Product (Side)</h4>
+        <div class="img-dim">800 × 900 px</div>
+        <p>Right panel of hero section. Product on white or wood background. Portrait orientation.</p>
+        <div class="img-format">PNG / WebP · Max 200KB</div>
+      </div>
+      <div class="img-guide-card">
+        <h4>🛍️ Product Thumbnail</h4>
+        <div class="img-dim">600 × 600 px</div>
+        <p>Square product card image. Consistent white background. Clean front-facing product shot.</p>
+        <div class="img-format">JPG / PNG · Max 100KB</div>
+      </div>
+      <div class="img-guide-card">
+        <h4>🛒 Cart / Checkout Thumb</h4>
+        <div class="img-dim">90 × 90 px</div>
+        <p>Tiny version used in cart and order summary. Cropped square, no background clutter.</p>
+        <div class="img-format">JPG · Max 15KB</div>
+      </div>
+      <div class="img-guide-card">
+        <h4>📂 Category Card</h4>
+        <div class="img-dim">380 × 190 px</div>
+        <p>Category grid thumbnail. Show a representative product or lifestyle scene of that category.</p>
+        <div class="img-format">JPG / WebP · Max 80KB</div>
+      </div>
+      <div class="img-guide-card">
+        <h4>📣 Promo Banner</h4>
+        <div class="img-dim">360 × 210 px</div>
+        <p>Banner inside the promo/offer section. Product on transparent or dark background.</p>
+        <div class="img-format">PNG / WebP · Max 80KB</div>
+      </div>
+      <div class="img-guide-card">
+        <h4>👤 Team Portrait</h4>
+        <div class="img-dim">300 × 260 px</div>
+        <p>Team member headshot. Consistent neutral background. Warm, natural lighting preferred.</p>
+        <div class="img-format">JPG · Max 60KB</div>
+      </div>
+      <div class="img-guide-card">
+        <h4>🏭 About / Workshop</h4>
+        <div class="img-dim">600 × 460 px</div>
+        <p>Founder or workshop photo for About page. Candid, authentic, showcasing craftsmanship.</p>
+        <div class="img-format">JPG · Max 150KB</div>
+      </div>
+      <div class="img-guide-card">
+        <h4>🔷 Logo / Favicon</h4>
+        <div class="img-dim">512×512 / 32×32 px</div>
+        <p>SVG preferred for logo (scales perfectly). PNG for favicon. Transparent background for both.</p>
+        <div class="img-format">SVG + PNG · Max 20KB</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div><div class="footer-logo">Woodly<span>🪵</span></div><p class="footer-desc">Bringing the warmth of natural wood to playrooms since 2018.</p></div>
+      <div><h4>Shop</h4><ul><li><a href="shop.html">All Products</a></li><li><a href="shop.html">Bestsellers</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><h4>Help</h4><ul><li><a href="payment-guide.html">Payment Info</a></li><li><a href="#">Returns</a></li><li><a href="#">FAQ</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 Woodly Toys. All rights reserved.</p><div class="pay-chips"><span class="pay-chip">Razorpay</span><span class="pay-chip">UPI</span><span class="pay-chip">Stripe</span><span class="pay-chip">COD</span></div></div>
+  </div>
+</footer>
+<script>function toggleMenu(){document.getElementById('mobMenu').classList.toggle('open');}</script>
+</body>
+</html>
